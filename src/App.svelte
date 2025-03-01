@@ -54,14 +54,14 @@
       isRecurring: true,
     },
   ];
-    let  cnt = 0;
+    let cnt = 0;
   
   expenses.map((ex)=>{
      cnt += ex.amount
   });
 
   $: totalExpense = expenses.length>0?(cnt):0
-  let  exs =  expenses;
+  $:  exs =  expenses;
   
   const filterExpenses = (category =null) =>{
     if (!category){
