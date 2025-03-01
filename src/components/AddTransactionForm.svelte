@@ -41,14 +41,14 @@
                 bind:value={expenseObj.category}
             >
                 <option value="" disabled selected>Select Category</option>
-                <option value={"groceries"}>Groceries</option>
-                <option value={"transportation"}>Transportation</option>
-                <option value={"entertainment"}>Entertainment</option>
-                <option value={"utilities"}>Utilities</option>
-                <option value={"shopping"}>Shopping</option>
-                <option value={"healthcare"}>Healthcare</option>
-                <option value={"education"}>Education</option>
-                <option value={"income"}>Income</option>
+                <option value={"Groceries"}>Groceries</option>
+                <option value={"Transportation"}>Transportation</option>
+                <option value={"Entertainment"}>Entertainment</option>
+                <option value={"Utilities"}>Utilities</option>
+                <option value={"Shopping"}>Shopping</option>
+                <option value={"Healthcare"}>Healthcare</option>
+                <option value={"Education"}>Education</option>
+                <option value={"Income"}>Income</option>
             </select>
 
             <div class="flex gap-4">

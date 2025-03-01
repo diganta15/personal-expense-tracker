@@ -1,5 +1,6 @@
 <script>
   import AddTransactionForm from "./components/AddTransactionForm.svelte";
+    import CategoriesMenu from "./components/CategoriesMenu.svelte";
   import TransactionList from "./components/TransactionList.svelte";
 
   export let expenses = [
@@ -14,7 +15,6 @@
       isRecurring: false,
     },
     {
-      uniqueId: "exp_002",
       amount: 45.0,
       category: "Transportation",
       description: "Uber ride to airport",
@@ -61,9 +61,26 @@
   });
 
   $: totalExpense = expenses.length>0?(cnt):0
-  console.log(totalExpense);
+  let  exs =  expenses;
+  
+  const filterExpenses = (category =null) =>{
+    if (!category){
+      exs = expenses;
+      return;
+    }
+    exs = expenses.filter(expense => expense.category === category);
+  }
 
-  let categories = [
+
+  const filterFunc = (e) =>{
+    filterExpenses(e.detail);
+  }
+  const showAll = () =>{
+    filterExpenses();
+  }
+ 
+
+  export let categories = [
     "Groceries",
     "Transportation",
     "Income",
@@ -71,7 +88,7 @@
     "Utilities",
     "Shopping",
     "Healthcare",
-    "Education",
+    "Education"
   ];
 
   let addTransaction = (e) => {
@@ -102,12 +119,13 @@
    
 
       <AddTransactionForm on:add-expense={addTransaction}/>
-
+      <CategoriesMenu {categories} on:filter={filterFunc} on:all={showAll} />
       <!-- Recent Transactions -->
       <div class="p-6">
         <h3 class="text-lg font-semibold mb-4">Recent Transactions</h3>
+      
         <div class="space-y-3">
-          <TransactionList {expenses} />
+          <TransactionList {exs} />
         </div>
       </div>
     </div>

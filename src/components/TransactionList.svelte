@@ -1,9 +1,9 @@
 <script>
     import TransactionItem from "./TransactionItem.svelte";
 
-    export let expenses = []
+    export let exs = []
 </script>
 
-{#each expenses as ex(ex.uniqueId)}
+{#each exs as ex(ex.uniqueId)}
     <TransactionItem item={ex} />
 {/each}
